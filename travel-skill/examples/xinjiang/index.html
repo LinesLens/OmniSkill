@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>北疆伊犁 · 八日行旅指南</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&family=Figtree:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --clay:#C8613F;--clay-d:#A84A2A;--clay-l:#F5E6DE;
+  --ink:#1E2A3A;--ink-l:#3A4A5E;
+  --silk:#E8D1B5;--silk-l:#F5EDE3;
+  --gold:#D4A853;--gold-l:#FAF1E0;
+  --cream:#FBF5ED;--white:#FFFEFC;
+  --border:#E5DBCC;--border-l:#F0E8DC;
+  --text:#1E1A14;--muted:#6B5E4E;--light:#9B8D7A;
+  --card-shadow:0 1px 8px rgba(30,20,14,0.06);
+  --radius:16px;--rs:10px;
+  --measure:680px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{
+  font-family:"Source Serif 4","PingFang SC","Noto Serif SC",serif;
+  color:var(--text);background:var(--cream);
+  line-height:1.8;-webkit-font-smoothing:antialiased;
+  font-size:17px;
+}
+
+/* ─── HERO ─── */
+.hero{
+  background:linear-gradient(135deg,var(--ink) 0%,#2A3F5A 40%,var(--clay-d) 100%);
+  color:#fff;padding:64px 24px 56px;text-align:center;
+  position:relative;overflow:hidden;
+}
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background:radial-gradient(ellipse at 30% 20%,rgba(212,168,83,0.12) 0%,transparent 50%),
+    radial-gradient(ellipse at 70% 80%,rgba(200,97,63,0.1) 0%,transparent 50%);
+}
+.hero-inner{position:relative;max-width:600px;margin:0 auto}
+.hero-label{
+  font-family:"Figtree",sans-serif;font-size:0.7em;font-weight:500;
+  letter-spacing:4px;text-transform:uppercase;color:var(--gold);
+  margin-bottom:12px;opacity:0.9;
+}
+.hero h1{
+  font-family:"Fraunces",serif;font-size:clamp(2.4em,6vw,3.6em);
+  font-weight:900;line-height:1.1;letter-spacing:-0.02em;
+  margin-bottom:12px;
+}
+.hero .sub{
+  font-size:1em;opacity:0.85;font-weight:400;
+  margin-bottom:20px;
+}
+.hero-tags{display:flex;flex-wrap:wrap;justify-content:center;gap:8px}
+.hero-tags span{
+  background:rgba(255,255,255,0.1);backdrop-filter:blur(4px);
+  padding:5px 14px;border-radius:100px;
+  font-family:"Figtree",sans-serif;font-size:0.78em;font-weight:500;
+}
+.hero-tags span.hl{background:var(--clay);color:#fff}
+
+/* ─── SECTION NAV ─── */
+.nav-bar{
+  position:sticky;top:0;z-index:50;
+  background:rgba(251,245,237,0.92);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+  overflow-x:auto;overflow-y:hidden;
+  -webkit-overflow-scrolling:touch;
+}
+.nav-bar-inner{
+  display:flex;gap:4px;padding:10px 16px;max-width:880px;margin:0 auto;
+  white-space:nowrap;
+}
+.nav-bar a{
+  font-family:"Figtree",sans-serif;font-size:0.78em;font-weight:500;
+  color:var(--muted);text-decoration:none;
+  padding:6px 14px;border-radius:100px;transition:all 0.2s;
+  flex-shrink:0;
+}
+.nav-bar a:hover,.nav-bar a.active{background:var(--clay-l);color:var(--clay-d);font-weight:600}
+
+/* ─── MAIN ─── */
+.main{max-width:900px;margin:0 auto;padding:0 24px 56px}
+
+/* ─── SECTIONS ─── */
+.section{
+  background:var(--white);border-radius:var(--radius);
+  padding:40px 42px;margin-top:28px;
+  box-shadow:var(--card-shadow);
+}
+.section h2{
+  font-family:"Fraunces",serif;font-size:1.5em;font-weight:700;
+  color:var(--ink);margin-bottom:20px;
+  letter-spacing:-0.01em;display:flex;align-items:center;gap:12px;
+}
+.section h2::after{
+  content:"";flex:1;height:1px;background:var(--border-l);
+}
+
+/* ─── OVERVIEW TABLE ─── */
+.ov-grid{display:grid;gap:8px;font-size:0.88em}
+.ov-row{
+  display:grid;grid-template-columns:100px 1fr 1fr auto;
+  gap:12px;align-items:center;
+  padding:10px 14px;border-radius:var(--rs);
+  border-bottom:1px solid var(--border-l);
+}
+.ov-row:last-child{border-bottom:none}
+.ov-row:hover{background:var(--cream)}
+.ov-day{font-weight:600;color:var(--clay-d);font-family:"Figtree",sans-serif;font-size:0.84em}
+.ov-theme{font-weight:600}
+.ov-act{color:var(--muted);font-size:0.92em}
+.wx-badge{
+  padding:3px 10px;border-radius:100px;font-size:0.78em;font-weight:500;
+  font-family:"Figtree",sans-serif;white-space:nowrap;
+}
+.wx-s{background:#FEF6E8;color:#C97A20}
+.wx-c{background:#EEF2F8;color:#4A6290}
+
+/* ─── DAY CARD ─── */
+.day-card{border:1px solid var(--border);border-radius:var(--radius);margin-bottom:24px;overflow:hidden}
+.day-card[open] .day-hd::after{transform:rotate(180deg)}
+.day-hd{
+  background:var(--ink);color:#fff;padding:16px 22px;
+  display:flex;justify-content:space-between;align-items:center;
+  font-family:"Fraunces",serif;font-size:1em;font-weight:600;letter-spacing:0.01em;
+  cursor:pointer;list-style:none;
+}
+.day-hd::-webkit-details-marker{display:none}
+.day-hd::after{
+  content:"▾";font-size:1.1em;margin-left:10px;flex-shrink:0;
+  transition:transform 0.3s;opacity:0.7;
+}
+.day-hd .dh-wx{
+  font-family:"Figtree",sans-serif;font-size:0.72em;font-weight:400;
+  background:rgba(255,255,255,0.12);padding:4px 12px;border-radius:100px;
+}
+.day-body{padding:20px 24px;background:var(--white);animation:ds-in 0.25s ease}
+@keyframes ds-in{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+
+/* KEY-TIME BADGE */
+.kt{
+  display:inline-block;padding:2px 9px;border-radius:100px;
+  font-family:"Figtree",sans-serif;font-weight:600;font-size:0.82em;margin-right:4px;
+}
+.kt.m{background:#F5E6DE;color:var(--clay-d)}
+.kt.t{background:#E8EDF2;color:var(--ink-l)}
+.kt.e{background:var(--gold-l);color:#7A5F18}
+
+/* ATTR */
+.abox{
+  border-left:3px solid var(--clay);background:var(--cream);
+  padding:14px 18px;margin:12px 0;border-radius:0 var(--rs) var(--rs) 0;font-size:0.85em;
+}
+.abox h4{color:var(--clay-d);font-size:0.95em;margin-bottom:4px;font-family:"Fraunces",serif}
+.am{display:flex;flex-wrap:wrap;gap:5px;margin-bottom:4px}
+.am em{background:var(--silk-l);padding:2px 9px;border-radius:100px;font-size:0.82em;color:var(--muted);font-style:normal}
+
+/* MAP LINK */
+.ml{margin:10px 0 6px;font-size:0.8em}
+.ml a{color:var(--clay);text-decoration:none;font-weight:500}
+.ml a:hover{text-decoration:underline}
+
+/* RAINY */
+.rainy{
+  border:1px dashed #D0D8E0;background:#F8FAFC;
+  border-radius:var(--rs);padding:10px 14px;margin-top:10px;
+  font-size:0.8em;color:var(--muted);
+}
+.rainy strong{color:var(--ink);font-weight:600}
+
+/* ─── DATA TABLE ─── */
+.dt{width:100%;border-collapse:collapse;font-size:0.84em;margin:12px 0}
+.dt thead th{
+  font-family:"Figtree",sans-serif;font-size:0.78em;font-weight:600;
+  color:var(--ink-l);padding:10px 12px;text-align:left;
+  border-bottom:2px solid var(--border-l);letter-spacing:0.03em;
+}
+.dt tbody td{padding:10px 12px;border-bottom:1px solid var(--border-l);vertical-align:top}
+.dt tbody tr:hover td{background:var(--cream)}
+.rating{color:var(--gold);font-weight:700}
+.rc{font-size:0.82em;color:var(--light)}
+.bh td{font-weight:700;background:var(--clay-l)!important}
+.dt a{color:var(--clay-d);text-decoration:none;font-weight:600}
+.dt a:hover{text-decoration:underline}
+
+/* ─── PHOTO GRID ─── */
+.pg{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.pi{
+  border:1px solid var(--border);border-radius:var(--rs);
+  padding:14px 16px;background:var(--white);font-size:0.82em;
+  transition:box-shadow 0.2s;
+}
+.pi:hover{box-shadow:0 2px 16px rgba(0,0,0,0.06)}
+.pi .pi-ico{color:var(--gold);font-size:1.1em;margin-bottom:4px}
+.pi h4{color:var(--clay-d);font-size:0.92em;margin-bottom:2px;font-family:"Fraunces",serif}
+.pi .pi-t{font-size:0.78em;color:var(--gold)}
+.pi p{color:var(--muted);margin-top:2px;line-height:1.5}
+
+/* ─── TOC ─── */
+.toc-ol{list-style:none;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:4px 20px}
+.toc-ol li{counter-increment:toc-n}
+.toc-ol a{
+  display:flex;align-items:center;gap:10px;padding:8px 12px;
+  border-radius:var(--rs);text-decoration:none;color:var(--ink);
+  font-family:"Figtree",sans-serif;font-size:0.85em;font-weight:500;
+  transition:background 0.2s;
+}
+.toc-ol a::before{
+  content:counter(toc-n,decimal-leading-zero);
+  font-family:"Fraunces",serif;font-size:0.95em;font-weight:700;
+  color:var(--clay);min-width:24px;
+}
+.toc-ol a:hover{background:var(--clay-l)}
+
+/* ─── DAY SLOTS ─── */
+.ds{display:grid;gap:10px;margin:14px 0}
+.ds-r{
+  display:grid;grid-template-columns:100px 1fr;gap:8px;
+  padding:12px 16px;border-radius:var(--rs);font-size:0.9em;line-height:1.7;
+  border-left:4px solid var(--border-l);background:var(--cream);
+}
+.ds-r.meal{border-left-color:var(--clay);background:linear-gradient(90deg,rgba(200,97,63,0.06),rgba(200,97,63,0.01))}
+.ds-r.transit{border-left-color:var(--ink-l);background:linear-gradient(90deg,rgba(58,74,94,0.04),rgba(58,74,94,0.01))}
+.ds-r.free{border-left-color:var(--gold);background:linear-gradient(90deg,rgba(212,168,83,0.08),rgba(212,168,83,0.01))}
+.ds-tm{font-weight:700;color:var(--clay-d);font-family:"Figtree",sans-serif;font-size:0.92em;white-space:nowrap;min-width:70px}
+.ds-bd strong{display:block;color:var(--ink);margin-bottom:2px}
+.ds-bd .ds-note{display:block;font-size:0.85em;color:var(--muted);margin-top:2px}
+
+/* ─── IMAGES ─── */
+.ai{
+  width:100%;max-height:260px;object-fit:cover;border-radius:var(--rs);
+  margin:10px 0;border:1px solid var(--border-l);
+}
+.fig{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:12px 0;
+}
+.fig img{
+  width:100%;height:120px;object-fit:cover;border-radius:var(--rs);
+  border:1px solid var(--border-l);
+}
+
+/* ─── SOURCE BADGE ─── */
+.sb{
+  display:inline-block;padding:2px 8px;border-radius:100px;
+  font-family:"Figtree",sans-serif;font-size:0.72em;font-weight:500;
+}
+.sb-ok{background:#E8F5E9;color:#2E7D32}
+.sb-ref{background:#FFF8E1;color:#E65100}
+
+/* ─── TIPS ─── */
+.tips-ol{list-style:none;padding:0;counter-reset:n}
+.tips-ol li{
+  padding:10px 0;border-bottom:1px solid var(--border-l);
+  font-size:0.87em;counter-increment:n;display:flex;gap:14px;line-height:1.7;
+}
+.tips-ol li::before{
+  content:counter(n,decimal-leading-zero);
+  font-family:"Fraunces",serif;font-size:1.15em;font-weight:700;
+  color:var(--clay);min-width:32px;flex-shrink:0;
+}
+
+/* ─── BACK TO TOP ─── */
+#btt{
+  position:fixed;bottom:24px;right:24px;z-index:60;
+  width:44px;height:44px;border-radius:50%;
+  background:rgba(251,245,237,0.92);backdrop-filter:blur(12px);
+  border:1px solid var(--border);color:var(--clay);
+  font-size:1.2em;cursor:pointer;display:flex;align-items:center;justify-content:center;
+  opacity:0;transform:translateY(20px);transition:opacity 0.3s,transform 0.3s;
+  pointer-events:none;box-shadow:var(--card-shadow);
+}
+#btt.visible{opacity:1;transform:translateY(0);pointer-events:auto}
+#btt:hover{background:var(--clay-l);border-color:var(--clay)}
+
+/* ─── FOOTER ─── */
+.footer{text-align:center;color:var(--light);font-size:0.76em;padding:24px 0 12px;line-height:2}
+
+/* ─── RESPONSIVE ─── */
+@media(max-width:740px){
+  .section{padding:24px 20px}
+  .section h2{font-size:1.25em}
+  .day-body{padding:14px 16px}
+  .day-hd{flex-direction:column;gap:6px;text-align:center}
+  .ov-row{grid-template-columns:80px 1fr;gap:4px 10px;font-size:0.8em}
+  .ov-act,.wx-badge{grid-column:2}
+  .pg{grid-template-columns:1fr 1fr}
+  .dt{font-size:0.72em}
+  .dt th,.dt td{padding:6px 5px}
+  .hero{padding:44px 18px 40px}
+}
+@media(max-width:480px){
+  .pg{grid-template-columns:1fr}
+  .pg .pi:last-child{display:none}
+  .toc-ol{grid-template-columns:1fr}
+  .ds-r{grid-template-columns:65px 1fr;font-size:0.82em}
+  .ds-tm{min-width:60px;font-size:0.8em}
+  .fig{grid-template-columns:1fr 1fr}
+}
+@media print{
+  body{background:#fff;color:#000}
+  .nav-bar,.qr-box{display:none}
+  .section{box-shadow:none;break-inside:avoid;border:1px solid #ddd}
+  .hero{background:#1E2A3A!important;-webkit-print-color-adjust:exact}
+  .day-hd{background:#1E2A3A!important;-webkit-print-color-adjust:exact}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-label">Travel Guide · 2026</div>
+    <h1>北疆伊犁</h1>
+    <p class="sub">从赛里木湖到那拉提 · 穿越天山腹地的八日牧歌</p>
+    <div class="hero-tags">
+      <span class="hl">8/11 — 8/18</span>
+      <span>8天7晚</span>
+      <span>情侣2人</span>
+      <span>人均~3,700元</span>
+      <span>自然·美食·休闲</span>
+    </div>
+  </div>
+</header>
+
+<!-- STICKY NAV -->
+<nav class="nav-bar">
+  <div class="nav-bar-inner" id="topnav">
+    <a href="#overview">概要</a>
+    <a href="#itinerary">行程</a>
+    <a href="#accommodation">住宿</a>
+    <a href="#restaurants">美食</a>
+    <a href="#budget">预算</a>
+    <a href="#info">实用信息</a>
+    <a href="#photospots">打卡</a>
+    <a href="#tips">贴士</a>
+  </div>
+</nav>
+
+<main class="main">
+
+<!-- OVERVIEW -->
+<section class="section" id="overview">
+  <h2>精简概要</h2>
+  <p style="margin-bottom:16px;line-height:1.9;font-size:0.92em">
+    北疆伊犁被誉为"塞外江南"，8月初草原仍绿、瓜果飘香。本次行程以伊宁市为中心，覆盖<strong>赛里木湖、夏塔古道、喀拉峻草原、那拉提草原</strong>四大核心景区，全程大巴+拼车，节奏适中偏轻松，适合情侣休闲出游。
+  </p>
+  <div class="ov-grid">
+    <div class="ov-row"><span class="ov-day">Day 1 · 8/11</span><span class="ov-theme">初到伊宁</span><span class="ov-act">喀赞其 → 六星街 → 汉人街夜市</span><span class="wx-badge wx-s">晴 20-35</span></div>
+    <div class="ov-row"><span class="ov-day">Day 2 · 8/12</span><span class="ov-theme">赛里木湖</span><span class="ov-act">环湖一日游 → 果子沟大桥</span><span class="wx-badge wx-s">晴 19-34</span></div>
+    <div class="ov-row"><span class="ov-day">Day 3 · 8/13</span><span class="ov-theme">伊昭公路</span><span class="ov-act">伊昭公路风光 → 天马浴河</span><span class="wx-badge wx-s">晴 18-33</span></div>
+    <div class="ov-row"><span class="ov-day">Day 4 · 8/14</span><span class="ov-theme">夏塔古道</span><span class="ov-act">轻徒步 → 特克斯八卦城</span><span class="wx-badge wx-c">多云 17-30</span></div>
+    <div class="ov-row"><span class="ov-day">Day 5 · 8/15</span><span class="ov-theme">喀拉峻</span><span class="ov-act">立体草原全域 + 阔克苏峡谷</span><span class="wx-badge wx-s">晴 17-35</span></div>
+    <div class="ov-row"><span class="ov-day">Day 6 · 8/16</span><span class="ov-theme">转场那拉提</span><span class="ov-act">特克斯→新源→那拉提</span><span class="wx-badge wx-c">多云 17-34</span></div>
+    <div class="ov-row"><span class="ov-day">Day 7 · 8/17</span><span class="ov-theme">空中草原</span><span class="ov-act">那拉提+雪莲谷 → 返伊宁</span><span class="wx-badge wx-c">多云 17-33</span></div>
+    <div class="ov-row"><span class="ov-day">Day 8 · 8/18</span><span class="ov-theme">告别伊犁</span><span class="ov-act">购物 → 飞回成都</span><span class="wx-badge wx-c">多云 17-27</span></div>
+  </div>
+  <p style="margin-top:10px;font-size:0.76em;color:var(--light)"><span class="sb sb-ref">📌 参考</span> 天气为预报数据，门票价格为参考，出行前请查询实时信息</p>
+</section>
+
+<!-- TOC -->
+<section class="section" id="toc">
+  <h2>目录</h2>
+  <ol class="toc-ol">
+    <li><a href="#overview">精简概要</a></li>
+    <li><a href="#itinerary">详细行程</a></li>
+    <li><a href="#accommodation">住宿推荐</a></li>
+    <li><a href="#restaurants">美食打卡</a></li>
+    <li><a href="#budget">预算估算</a></li>
+    <li><a href="#info">实用信息</a></li>
+    <li><a href="#photospots">拍照打卡</a></li>
+    <li><a href="#tips">出行贴士</a></li>
+  </ol>
+</section>
+
+<!-- ITINERARY -->
+<section class="section" id="itinerary">
+  <h2>详细行程</h2>
+
+  <!-- Day 1 -->
+  <details class="day-card" open>
+    <summary class="day-hd"><span>Day 1 · 8/11 — 初到伊宁，蓝色童话城</span><span class="dh-wx">晴 20-35</span></summary>
+    <div class="day-body">
+      <div class="ds">
+        <div class="ds-r meal"><div class="ds-tm"><span class="kt m">08:00</span></div><div class="ds-bd"><strong>🥣 成都机场简餐</strong><span class="ds-note">出发前吃饱，飞行约4.5h</span></div></div>
+        <div class="ds-r transit"><div class="ds-tm"><span class="kt t">08:15</span></div><div class="ds-bd"><strong>✈️ 成都→伊宁航班</strong><span class="ds-note">春秋TFU 08:15 / 国航TFU 06:55 / 川航CTU 06:25</span></div></div>
+        <div class="ds-r meal"><div class="ds-tm"><span class="kt m">11:30</span></div><div class="ds-bd"><strong>🥢 落地午餐</strong><span class="ds-note">飞机餐或市区过油肉拌面 · 人均25-35元</span></div></div>
+        <div class="ds-r"><div class="ds-tm"><span class="kt e">13:00</span></div><div class="ds-bd"><strong>抵达伊宁</strong><span class="ds-note">打车前往酒店（约15-20分钟），办理入住</span></div></div>
+        <div class="ds-r"><div class="ds-tm"><span class="kt e">13:30</span></div><div class="ds-bd"><strong>喀赞其民俗街</strong><span class="ds-note">蓝色街巷漫步 · 哈迪克马车约80元/人 · 穿白色/黄色拍照格外上镜</span></div></div>
+        <div class="ds-r"><div class="ds-tm"><span class="kt e">17:00</span></div><div class="ds-bd"><strong>六星街下午茶</strong><span class="ds-note">古兰丹姆百年冰淇淋（约15元/杯）· 亚历山大手风琴珍藏馆</span></div></div>
+        <div class="ds-r meal"><div class="ds-tm"><span class="kt m">18:00</span></div><div class="ds-bd"><strong>🍖 汉人街夜市</strong><span class="ds-note">⭐4.6 · 烤包子3元 · 面肺子+米肠子15元 · 红柳烤串 · 人均30-50元</span></div></div>
+        <div class="ds-r free"><div class="ds-tm"><span class="kt e">20:00</span></div><div class="ds-bd"><strong>🎯 自由探索</strong><span class="ds-note">六星街周边漫步，感受伊宁夜生活</span></div></div>
+      </div>
+      <div class="abox"><h4>喀赞其民俗旅游区</h4><div class="am"><em>免费</em><em>2-3h</em></div><img class="ai" src="https://images.pexels.com/photos/5472515/pexels-photo-5472515.jpeg?auto=compress&cs=tinysrgb&w=800" alt="蓝色老街示意" loading="lazy"><small style="display:block;color:var(--light);margin-top:4px">📷 蓝色老街巷（喀赞其以蓝色民居闻名）</small>不要只在主街走，钻进巷道深处才是真正的喀赞其；穿白色/黄色衣服拍照格外上镜</div>
+      <p class="ml">🗺️ <a href="https://ditu.amap.com/dir?from%5Bname%5D=伊宁机场&to%5Bname%5D=喀赞其民俗旅游区" target="_blank">查看路线</a> — 伊宁机场 → 喀赞其 → 六星街 → 汉人街夜市</p>
+      <div class="rainy"><strong>雨天备选</strong> · 亚历山大手风琴珍藏馆（近800架，免费） · 伊犁州博物馆（免费）</div>
+    </div>
+  </details>
+
+  <!-- Day 2 -->
+  <details class="day-card">
+    <summary class="day-hd"><span>Day 2 · 8/12 — 大西洋最后一滴眼泪</span><span class="dh-wx">晴 19-34</span></summary>
+    <div class="day-body">
+      <div class="ds">
+        <div class="ds-r meal"><div class="ds-tm"><span class="kt m">08:30</span></div><div class="ds-bd"><strong>🥣 伊宁酒店早餐</strong><span class="ds-note">吃饱再出发，赛湖景区餐饮贵</span></div></div>
+        <div class="ds-r transit"><div class="ds-tm"><span class="kt t">09:00</span></div><div class="ds-bd"><strong>🚌 大巴前往赛湖</strong><span class="ds-note">伊犁州客运总站出发 · 49元/人 · 2h · 坐左侧看果子沟大桥</span></div></div>
+        <div class="ds-r"><div class="ds-tm"><span class="kt e">11:00</span></div><div class="ds-bd"><strong>赛里木湖东门入园</strong><span class="ds-note">145元/人（含区间车）· 区间车坐右侧环湖</span></div></div>
+        <div class="ds-r meal"><div class="ds-tm"><span class="kt m">11:30</span></div><div class="ds-bd"><strong>🥢 湖边野餐</strong><span class="ds-note">自带馕、酸奶、水果、火腿肠</span></div></div>
+        <div class="ds-r"><div class="ds-tm"><span class="kt e">14:00</span></div><div class="ds-bd"><strong>环湖精华段</strong><span class="ds-note">S弯公路 · 点将台 · 西海草原 · 天鹅乐水 · 风大必带冲锋衣+帽子+墨镜</span></div></div>
+        <div class="ds-r transit"><div class="ds-tm"><span class="kt t">17:30</span></div><div class="ds-bd"><strong>🚌 返程大巴</strong><span class="ds-note">东门游客中心乘大巴回伊宁 · 约2h</span></div></div>
+        <div class="ds-r meal"><div class="ds-tm"><span class="kt m">18:00</span></div><div class="ds-bd"><strong>🍖 伊宁过油肉拌面</strong><span class="ds-note">解放西路/斯大林街老店 · 免费加面+烤串 · 人均30-40元</span></div></div>
+        <div class="ds-r free"><div class="ds-tm"><span class="kt e">20:00</span></div><div class="ds-bd"><strong>🎯 自由探索</strong><span class="ds-note">伊宁市区散步，购买次日干粮补给</span></div></div>
+      </div>
+      <div class="abox"><h4>赛里木湖 · 必打卡点</h4><div class="am"><em>145元</em><em>海拔2073m</em><em>4-6h</em></div><img class="ai" src="https://images.pexels.com/photos/17804518/pexels-photo-17804518.jpeg?auto=compress&cs=tinysrgb&w=800" alt="高山湖泊示意" loading="lazy"><small style="display:block;color:var(--light);margin-top:4px">📷 高山湖泊（赛里木湖海拔2073m，湖水湛蓝）</small>S弯公路 · 点将台 · 西海草原 · 天鹅乐水<br>风非常大且凉，务必带冲锋衣+带绳帽子+墨镜；自带干粮和水；区间车坐右侧环湖视野很好</div>
+      <p class="ml">🗺️ <a href="https://ditu.amap.com/dir?from%5Bname%5D=伊犁州客运总站&to%5Bname%5D=赛里木湖" target="_blank">查看路线</a> — 伊宁 → 赛里木湖东门 → 果子沟大桥（途经）</p>
+      <div class="rainy"><strong>雨天备选</strong> · 赛湖游客中心休息区 · 伊宁林则徐纪念馆</div>
+    </div>
+  </details>
+
+  <!-- Day 3 -->
+  <details class="day-card">
+    <summary class="day-hd"><span>Day 3 · 8/13 — 伊昭公路，转到昭苏</span><span class="dh-wx">晴 18-33</span></summary>
+    <div class="day-body">
+      <div class="ds">
+        <div class="ds-r meal"><div class="ds-tm"><span class="kt m">08:00</span></div><div class="ds-bd"><strong>🥣 伊宁酒店早餐</strong><span class="ds-note">退房后前往客运站</span></div></div>
+        <div class="ds-r transit"><div class="ds-tm"><span class="kt t">08:30</span></div><div class="ds-bd"><strong>🚌 伊昭公路 → 昭苏</strong><span class="ds-note">伊犁州客运站出发 · 48元/人 · 3.5-4h · 坐右侧靠窗赏白石峰</span></div></div>
+        <div class="ds-r meal"><div class="ds-tm"><span class="kt m">11:30</span></div><div class="ds-bd"><strong>🥢 昭苏县城午餐</strong><span class="ds-note">手抓羊肉+大盘鸡（2人点半份）· 人均50-70元</span></div></div>
+        <div class="ds-r"><div class="ds-tm"><span class="kt e">13:00</span></div><div class="ds-bd"><strong>昭苏湿地公园</strong><span class="ds-note">门票40-60元 · 天马文化体验 · 天马浴河表演（18:00）</span></div></div>
+        <div class="ds-r"><div class="ds-tm"><span class="kt e">18:00</span></div><div class="ds-bd"><strong>天马浴河表演！</strong><span class="ds-note">黄昏马群飞奔入特克斯河 · 提前占好拍摄位</span></div></div>
+        <div class="ds-r meal"><div class="ds-tm"><span class="kt m">19:30</span></div><div class="ds-bd"><strong>🍖 昭苏晚餐</strong><span class="ds-note">手抓肉+烤包子（下午现烤的风味很好）· 人均50-70元</span></div></div>
+        <div class="ds-r free"><div class="ds-tm"><span class="kt e">21:00</span></div><div class="ds-bd"><strong>🎯 自由探索</strong><span class="ds-note">昭苏县城漫步，感受"中国天马之乡"的夜色</span></div></div>
+      </div>
+      <div class="abox"><h4>伊昭公路</h4><div class="am"><em>免费（沿途）</em><em>6-9月开放</em></div><img class="ai" src="https://images.pexels.com/photos/210243/pexels-photo-210243.jpeg?auto=compress&cs=tinysrgb&w=800" alt="盘山公路示意" loading="lazy"><small style="display:block;color:var(--light);margin-top:4px">📷 盘山公路（伊昭公路翻越天山，6-9月开放）</small>被称为"小独库"，翻越天山支脉，沿途白石峰、草原、峡谷尽收眼底；昭苏是"中国天马之乡"</div>
+      <p class="ml">🗺️ <a href="https://ditu.amap.com/dir?from%5Bname%5D=伊宁&to%5Bname%5D=昭苏湿地公园" target="_blank">查看路线</a> — 伊宁 → 伊昭公路 → 昭苏湿地公园</p>
+      <div class="rainy"><strong>雨天备选</strong> · 昭苏天马文化博物馆</div>
+    </div>
+  </details>
+
+  <!-- Day 4 -->
+  <details class="day-card">
+    <summary class="day-hd"><span>Day 4 · 8/14 — 夏塔古道，雪山之下</span><span class="dh-wx">多云 17-30</span></summary>
+    <div class="day-body">
+      <div class="ds">
+        <div class="ds-r meal"><div class="ds-tm"><span class="kt m">07:00</span></div><div class="ds-bd"><strong>🥣 打包早餐</strong><span class="ds-note">酒店提前备好，路上吃 · 建议尽早出发</span></div></div>
+        <div class="ds-r transit"><div class="ds-tm"><span class="kt t">07:30</span></div><div class="ds-bd"><strong>🚌 拼车→夏塔</strong><span class="ds-note">昭苏客运站出发 · 25元/人 · 1-1.5h</span></div></div>
+        <div class="ds-r"><div class="ds-tm"><span class="kt e">09:00</span></div><div class="ds-bd"><strong>夏塔古道入园</strong><span class="ds-note">100-105元/人 · 区间车(45min)→温泉酒店→电瓶车→将军桥</span></div></div>
+        <div class="ds-r meal"><div class="ds-tm"><span class="kt m">11:30</span></div><div class="ds-bd"><strong>🥢 鲜花台野餐</strong><span class="ds-note">自带馕、水、士力架（将军桥后无补给！带现金）</span></div></div>
+        <div class="ds-r"><div class="ds-tm"><span class="kt e">12:30</span></div><div class="ds-bd"><strong>轻徒步·鲜花台</strong><span class="ds-note">将军桥→1-4号房（鲜花台）→ 木扎尔特冰川背景 · 往返8km/3-4h</span></div></div>
+        <div class="ds-r transit"><div class="ds-tm"><span class="kt t">16:00</span></div><div class="ds-bd"><strong>🚌 返程转场特克斯</strong><span class="ds-note">夏塔→昭苏（拼车25元）→大巴→特克斯（20-25元/1.5h）</span></div></div>
+        <div class="ds-r meal"><div class="ds-tm"><span class="kt m">18:00</span></div><div class="ds-bd"><strong>🍖 八卦城夜市</strong><span class="ds-note">过油肉拌面+烤串 · 人均30-45元</span></div></div>
+        <div class="ds-r free"><div class="ds-tm"><span class="kt e">20:00</span></div><div class="ds-bd"><strong>🎯 八卦城摩天轮</strong><span class="ds-note">俯瞰八卦城全景 · 约30元/人 · 日落时分很适合</span></div></div>
+      </div>
+      <div class="abox"><h4>夏塔古道 · 轻徒步路线</h4><div class="am"><em>100-105元</em><em>5-7h</em><em>往返8km · 3-4h</em></div><img class="ai" src="https://images.pexels.com/photos/1366919/pexels-photo-1366919.jpeg?auto=compress&cs=tinysrgb&w=800" alt="雪山云杉示意" loading="lazy"><small style="display:block;color:var(--light);margin-top:4px">📷 雪山+云杉（夏塔以木扎尔特冰川为背景，轻徒步往返8km）</small>景区大门→区间车→温泉酒店→电瓶车→将军桥→徒步→1-4号房（鲜花台）→原路返回<br>提前3-7天在<strong>[智游昭苏]</strong>小程序预约（每日<strong>限流3000人</strong>）！将军桥后无信号无补给，带现金+干粮+水；可能需边防证</div>
+      <p class="ml">🗺️ <a href="https://ditu.amap.com/dir?from%5Bname%5D=昭苏&to%5Bname%5D=特克斯八卦城" target="_blank">查看路线</a> — 昭苏 → 夏塔古道 → 特克斯八卦城</p>
+      <div class="rainy"><strong>雨天备选</strong> · 昭苏天马文化博物馆 · 特克斯易经文化园（室内展馆）</div>
+    </div>
+  </details>
+
+  <!-- Day 5 -->
+  <details class="day-card">
+    <summary class="day-hd"><span>Day 5 · 8/15 — 喀拉峻"立体草原"</span><span class="dh-wx">晴 17-35</span></summary>
+    <div class="day-body">
+      <div class="ds">
+        <div class="ds-r meal"><div class="ds-tm"><span class="kt m">08:00</span></div><div class="ds-bd"><strong>🥣 特克斯酒店早餐</strong><span class="ds-note">吃饱再出发，喀拉峻全天游览</span></div></div>
+        <div class="ds-r transit"><div class="ds-tm"><span class="kt t">08:30</span></div><div class="ds-bd"><strong>🚌 拼车→喀拉峻</strong><span class="ds-note">布拉克门票站 · 15元/人 · 约1h</span></div></div>
+        <div class="ds-r"><div class="ds-tm"><span class="kt e">09:30</span></div><div class="ds-bd"><strong>东西喀拉峻草原</strong><span class="ds-note">275元全域票 · 鲜花台（雪山+花海）· 猎鹰台（远眺雪峰）· 骑马约80元/h</span></div></div>
+        <div class="ds-r meal"><div class="ds-tm"><span class="kt m">11:30</span></div><div class="ds-bd"><strong>🥢 景区内简餐</strong><span class="ds-note">拌面/烤肉 · 偏贵建议自带干粮 · 人均30-40元</span></div></div>
+        <div class="ds-r"><div class="ds-tm"><span class="kt e">13:30</span></div><div class="ds-bd"><strong>阔克苏峡谷</strong><span class="ds-note">索道→鳄鱼湾（乳蓝色河水）· 九曲十八弯</span></div></div>
+        <div class="ds-r"><div class="ds-tm"><span class="kt e">16:00</span></div><div class="ds-bd"><strong>人体草原·黄金时刻！</strong><span class="ds-note">下午斜射光勾勒山丘曲线如卧美人 · 侧光效果好</span></div></div>
+        <div class="ds-r meal"><div class="ds-tm"><span class="kt m">18:00</span></div><div class="ds-bd"><strong>🍖 博哥椒麻鸡</strong><span class="ds-note">⭐4.3 · 20年老店 · 小份48元+手工皮带面 · 支持外卖</span></div></div>
+        <div class="ds-r free"><div class="ds-tm"><span class="kt e">20:00</span></div><div class="ds-bd"><strong>🎯 自由探索</strong><span class="ds-note">特克斯八卦城夜游，易经文化园散步</span></div></div>
+      </div>
+      <div class="abox"><h4>喀拉峻草原 · 全域精华</h4><div class="am"><em>275元全域</em><em>6-8h</em></div><img class="ai" src="https://images.pexels.com/photos/6140274/pexels-photo-6140274.jpeg?auto=compress&cs=tinysrgb&w=800" alt="草原示意" loading="lazy"><small style="display:block;color:var(--light);margin-top:4px">📷 高山草原（喀拉峻"立体草原"，16:00斜射光很适合）</small>含东西喀拉峻+阔克苏大峡谷+区间车+游船+索道；打卡：鲜花台（雪山+花海）· 猎鹰台（远眺雪峰）· 鳄鱼湾（乳蓝色河水）· 人体草原（16:00斜射光）；骑马约80元/h</div>
+      <p class="ml">🗺️ <a href="https://ditu.amap.com/dir?from%5Bname%5D=特克斯&to%5Bname%5D=喀拉峻草原" target="_blank">查看路线</a> — 特克斯 → 喀拉峻布拉克门票站</p>
+      <div class="rainy"><strong>雨天备选</strong> · 易经文化园+八卦城展览馆 · 哈萨克咸奶茶+包尔萨克</div>
+    </div>
+  </details>
+
+  <!-- Day 6 -->
+  <details class="day-card">
+    <summary class="day-hd"><span>Day 6 · 8/16 — 穿行伊犁河谷，转场那拉提</span><span class="dh-wx">多云 17-34</span></summary>
+    <div class="day-body">
+      <div class="ds">
+        <div class="ds-r meal"><div class="ds-tm"><span class="kt m">07:30</span></div><div class="ds-bd"><strong>🥣 特克斯酒店早餐</strong><span class="ds-note">退房，准备转场</span></div></div>
+        <div class="ds-r transit"><div class="ds-tm"><span class="kt t">08:00</span></div><div class="ds-bd"><strong>🚌 特克斯→那拉提</strong><span class="ds-note">特克斯→新源县（45元/2-2.5h）→接驳车→那拉提（20-25元/1h）</span></div></div>
+        <div class="ds-r meal"><div class="ds-tm"><span class="kt m">11:30</span></div><div class="ds-bd"><strong>🥢 新源县拌面</strong><span class="ds-note">过油肉/辣皮子拌面 · 人均25-35元</span></div></div>
+        <div class="ds-r"><div class="ds-tm"><span class="kt e">13:00</span></div><div class="ds-bd"><strong>那拉提镇入住休整</strong><span class="ds-note">连续多日游玩的缓冲半天 · 感受哈萨克小镇风情</span></div></div>
+        <div class="ds-r meal"><div class="ds-tm"><span class="kt m">18:00</span></div><div class="ds-bd"><strong>🍖 阿娜尔家</strong><span class="ds-note">⭐4.5（那拉提排名第3）· 马肉那仁 · 熏马肠 · 薄荷酸奶 · 人均60-80元</span></div></div>
+        <div class="ds-r free"><div class="ds-tm"><span class="kt e">20:00</span></div><div class="ds-bd"><strong>🎯 自由探索</strong><span class="ds-note">那拉提镇散步 · 感受哈萨克小镇夜色 · 为次日养精蓄锐</span></div></div>
+      </div>
+      <div class="abox"><h4>那拉提镇 · 哈萨克牧场</h4><div class="am"><em>中转休整</em><em>半天</em></div><img class="ai" src="https://images.pexels.com/photos/1996333/pexels-photo-1996333.jpeg?auto=compress&cs=tinysrgb&w=800" alt="草原牧马示意" loading="lazy"><small style="display:block;color:var(--light);margin-top:4px">📷 草原牧马（那拉提为哈萨克族牧场，随处可见骑马牧民）</small>那拉提镇是哈萨克族聚居地，镇上随处可见骑马牧民和毡房，提前感受草原气息</div>
+      <p class="ml">🗺️ <a href="https://ditu.amap.com/dir?from%5Bname%5D=特克斯&to%5Bname%5D=那拉提镇" target="_blank">查看路线</a> — 特克斯 → 新源县 → 那拉提镇</p>
+      <div class="rainy"><strong>雨天备选</strong> · 那拉提镇咖啡馆 · 为次日养精蓄锐</div>
+    </div>
+  </details>
+
+  <!-- Day 7 -->
+  <details class="day-card">
+    <summary class="day-hd"><span>Day 7 · 8/17 — 空中草原那拉提</span><span class="dh-wx">多云 17-33</span></summary>
+    <div class="day-body">
+      <div class="ds">
+        <div class="ds-r meal"><div class="ds-tm"><span class="kt m">07:30</span></div><div class="ds-bd"><strong>🥣 那拉提镇早餐</strong><span class="ds-note">景区开门即入园，建议早点入园</span></div></div>
+        <div class="ds-r"><div class="ds-tm"><span class="kt e">08:30</span></div><div class="ds-bd"><strong>空中草原+雪莲谷</strong><span class="ds-note">135元（门票95+区间车40）+ 雪莲谷60元 · 天界台→天牧台（骑马80元/h）→游牧人家→雪莲谷</span></div></div>
+        <div class="ds-r meal"><div class="ds-tm"><span class="kt m">11:30</span></div><div class="ds-bd"><strong>🥢 那拉提镇快餐</strong><span class="ds-note">拌面/抓饭 · 人均25-35元</span></div></div>
+        <div class="ds-r transit"><div class="ds-tm"><span class="kt t">14:30</span></div><div class="ds-bd"><strong>🚌 那拉提→伊宁</strong><span class="ds-note">客运站出发 · 56-80元 · 3.5-4.5h · 沿途伊犁河谷风光</span></div></div>
+        <div class="ds-r meal"><div class="ds-tm"><span class="kt m">18:00</span></div><div class="ds-bd"><strong>🍖 伊宁大盘鸡</strong><span class="ds-note">2人点半只+皮带面 · 最后一顿盛宴 · 人均50-60元</span></div></div>
+        <div class="ds-r free"><div class="ds-tm"><span class="kt e">20:00</span></div><div class="ds-bd"><strong>🎯 夜逛+伴手礼</strong><span class="ds-note">伊宁市区最后一夜 · 干果市场补货 · 购买伴手礼</span></div></div>
+      </div>
+      <div class="abox"><h4>那拉提 · 半天高效路线</h4><div class="am"><em>135元</em><em>4-5h</em></div><img class="ai" src="https://images.pexels.com/photos/25841505/pexels-photo-25841505.jpeg?auto=compress&cs=tinysrgb&w=800" alt="草原山景示意" loading="lazy"><small style="display:block;color:var(--light);margin-top:4px">📷 山地草原（那拉提"空中草原"，天界台俯瞰全景）</small>购票用<strong>[智游那拉提]</strong>小程序；雪莲谷60元/人（游牧人家现场购票）；8月草可能泛黄但风景依然壮美</div>
+      <p class="ml">🗺️ <a href="https://ditu.amap.com/dir?from%5Bname%5D=那拉提草原&to%5Bname%5D=伊宁" target="_blank">查看路线</a> — 那拉提 → 伊宁</p>
+      <div class="rainy"><strong>雨天备选</strong> · 那拉提游客中心展览 · 提前返回伊宁</div>
+    </div>
+  </details>
+
+  <!-- Day 8 -->
+  <details class="day-card">
+    <summary class="day-hd"><span>Day 8 · 8/18 — 告别伊犁</span><span class="dh-wx">多云 17-27</span></summary>
+    <div class="day-body">
+      <div class="ds">
+        <div class="ds-r meal"><div class="ds-tm"><span class="kt m">08:30</span></div><div class="ds-bd"><strong>🥣 伊宁酒店早餐</strong><span class="ds-note">睡到自然醒，享受最后一个新疆早晨</span></div></div>
+        <div class="ds-r"><div class="ds-tm"><span class="kt e">09:00</span></div><div class="ds-bd"><strong>农贸市场购物</strong><span class="ds-note">杏干、核桃、巴旦木、红枣 · 比机场便宜约三成</span></div></div>
+        <div class="ds-r meal"><div class="ds-tm"><span class="kt m">11:00</span></div><div class="ds-bd"><strong>🥢 临别一餐</strong><span class="ds-note">最后一碗过油肉拌面 · 人均25-30元</span></div></div>
+        <div class="ds-r transit"><div class="ds-tm"><span class="kt t">11:30</span></div><div class="ds-bd"><strong>🚕 前往伊宁机场</strong><span class="ds-note">出租车约15-20分钟</span></div></div>
+        <div class="ds-r transit"><div class="ds-tm"><span class="kt t">13:00</span></div><div class="ds-bd"><strong>✈️ 伊宁→成都</strong><span class="ds-note">飞行约4.5h · 平安回家 ✨</span></div></div>
+        <div class="ds-r free"><div class="ds-tm"><span class="kt e">17:00</span></div><div class="ds-bd"><strong>🎯 抵达成都</strong><span class="ds-note">结束愉快的北疆伊犁之旅 🎉</span></div></div>
+      </div>
+      <div class="abox"><h4>伊宁农贸市场 · 干果特产</h4><div class="am"><em>免费</em><em>1-2h</em></div><img class="ai" src="https://images.pexels.com/photos/1449657/pexels-photo-1449657.jpeg?auto=compress&cs=tinysrgb&w=800" alt="伊宁干果市场" loading="lazy" onerror="this.style.display='none'"><small style="display:block;color:var(--light);margin-top:4px">📷 伊宁农贸市场 · 杏干、核桃、巴旦木、红枣比机场便宜约三成</small>推荐购买：伊犁杏干（肉质厚）、纸皮核桃、若羌红枣、无花果干。可直接邮寄回家，免去携带负担</div>
+      <p class="ml">🗺️ <a href="https://ditu.amap.com/dir?from%5Bname%5D=伊宁市区&to%5Bname%5D=伊宁机场" target="_blank">查看路线</a> — 伊宁市区 → 伊宁机场</p>
+    </div>
+  </details>
+</section>
+
+<!-- ACCOMMODATION -->
+<section class="section" id="accommodation">
+  <h2>住宿推荐</h2>
+  <table class="dt">
+    <thead><tr><th>酒店</th><th>入住</th><th>人均/晚</th><th>评分</th><th>亮点</th><th>地址</th></tr></thead>
+    <tbody>
+      <tr><td><strong><a href="https://ditu.amap.com/search?query=汉庭酒店 伊宁六星街" target="_blank">汉庭（六星街景区店）</a></strong></td><td>8/11-12·8/17</td><td>60-100元</td><td><span class="rating">⭐4.7</span><span class="rc">(469)</span></td><td>2025新开业，隔音好，步行可达六星街</td><td>六星街附近</td></tr>
+      <tr><td><strong><a href="https://ditu.amap.com/search?query=昭苏客运站 住宿" target="_blank">昭苏客运站附近客栈</a></strong></td><td>8/13</td><td>50-90元</td><td><span class="rating">⭐4.0</span></td><td>方便次日早起去夏塔</td><td>昭苏客运站附近</td></tr>
+      <tr><td><strong><a href="https://ditu.amap.com/search?query=泰和酒店 特克斯太极坛" target="_blank">泰和酒店（太极坛店）</a></strong></td><td>8/14-15</td><td>75-90元</td><td><span class="rating">⭐4.6</span><span class="rc">(119)</span></td><td>2026新装修，智能客控，下楼即八卦城中心</td><td>太极坛旁135米</td></tr>
+      <tr><td><strong><a href="https://ditu.amap.com/search?query=景悦假日酒店 那拉提" target="_blank">景悦假日（客运站店）</a></strong></td><td>8/16</td><td>60-100元</td><td><span class="rating">⭐4.7</span><span class="rc">(329)</span></td><td>东北老板热情，窗外看草原</td><td>客运站正对面</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- RESTAURANTS -->
+<section class="section" id="restaurants">
+  <h2>美食打卡清单</h2>
+  <table class="dt">
+    <thead><tr><th>餐厅</th><th>日期</th><th>时段</th><th>评分</th><th>必点推荐</th><th>预订</th><th>地址</th></tr></thead>
+    <tbody>
+      <tr><td><strong><a href="https://ditu.amap.com/search?query=汉人街夜市 伊宁" target="_blank">汉人街夜市</a></strong></td><td>8/11</td><td><span class="kt m">18:00</span> 晚餐</td><td><span class="rating">⭐4.6</span><span class="rc">(214)</span></td><td>烤包子2.5元、面肺子+米肠子15元、红柳烤串</td><td>无需预订</td><td>伊宁市后滩路</td></tr>
+      <tr><td><strong><a href="https://ditu.amap.com/search?query=古兰丹姆冰淇淋 伊宁六星街" target="_blank">古兰丹姆冰淇淋</a></strong></td><td>8/11</td><td><span class="kt e">17:00</span> 下午茶</td><td><span class="rating">⭐4.0</span><span class="rc">(29)</span></td><td>经典原味19元、三拼47元、自助加果酱</td><td>无需预订</td><td>六星街内</td></tr>
+      <tr><td><strong><a href="https://ditu.amap.com/search?query=米吉提拌面 伊宁解放路" target="_blank">米吉提/库尔班江拌面</a></strong></td><td>8/12</td><td><span class="kt m">18:00</span> 晚餐</td><td><span class="rating">⭐4.2</span><span class="rc">必吃榜</span></td><td>过油肉拌面（免费加面）+烤串</td><td>无需预订，高峰期排队</td><td>解放路6巷13号</td></tr>
+      <tr><td><strong><a href="https://ditu.amap.com/search?query=手抓肉 昭苏县城" target="_blank">昭苏手抓肉馆</a></strong></td><td>8/13</td><td><span class="kt m">11:30</span> 午餐</td><td><span class="rating">⭐4.0</span></td><td>清水手抓羊肉、大盘鸡（2人点半份）</td><td>无需预订</td><td>昭苏县城中心街区</td></tr>
+      <tr><td><strong><a href="https://ditu.amap.com/search?query=八卦城夜市 特克斯" target="_blank">特克斯八卦城夜市</a></strong></td><td>8/14</td><td><span class="kt m">18:00</span> 晚餐</td><td><span class="rating">⭐4.0</span></td><td>过油肉拌面、烤羊肉串</td><td>无需预订</td><td>八卦城夜市附近</td></tr>
+      <tr><td><strong><a href="https://ditu.amap.com/search?query=博哥椒麻鸡 特克斯" target="_blank">博哥椒麻鸡（20年）</a></strong></td><td>8/15</td><td><span class="kt m">18:00</span> 晚餐</td><td><span class="rating">⭐4.3</span></td><td>椒麻鸡小份48元+手工皮带面</td><td>无需预订，可外卖</td><td>特克斯县合和小区对面</td></tr>
+      <tr><td><strong><a href="https://ditu.amap.com/search?query=阿娜尔家 那拉提" target="_blank">阿娜尔家</a></strong></td><td>8/16</td><td><span class="kt m">18:00</span> 晚餐</td><td><span class="rating">⭐4.5</span><span class="rc">第3名</span></td><td>马肉那仁、熏马肠、馕炒肉、薄荷酸奶</td><td>建议提前1天电话预订</td><td>那拉提镇那拉提街099号</td></tr>
+      <tr><td><strong><a href="https://ditu.amap.com/search?query=大盘鸡 伊宁解放西路" target="_blank">伊宁老店大盘鸡</a></strong></td><td>8/17</td><td><span class="kt m">18:00</span> 晚餐</td><td><span class="rating">⭐4.2</span></td><td>大盘鸡半只+皮带面</td><td>无需预订</td><td>伊宁市解放西路附近</td></tr>
+    </tbody>
+  </table>
+  <div class="fig" style="margin-top:16px;">
+    <img src="https://images.pexels.com/photos/323682/pexels-photo-323682.jpeg?auto=compress&cs=tinysrgb&w=400" alt="烤包子" loading="lazy" onerror="this.style.display='none'">
+    <img src="https://images.pexels.com/photos/1435904/pexels-photo-1435904.jpeg?auto=compress&cs=tinysrgb&w=400" alt="拌面" loading="lazy" onerror="this.style.display='none'">
+    <img src="https://images.pexels.com/photos/2338015/pexels-photo-2338015.jpeg?auto=compress&cs=tinysrgb&w=400" alt="手抓羊肉" loading="lazy" onerror="this.style.display='none'">
+    <img src="https://images.pexels.com/photos/9609838/pexels-photo-9609838.jpeg?auto=compress&cs=tinysrgb&w=400" alt="椒麻鸡" loading="lazy" onerror="this.style.display='none'">
+  </div>
+</section>
+
+<!-- BUDGET -->
+<section class="section" id="budget">
+  <h2>预算估算（人均）</h2>
+  <table class="dt">
+    <thead><tr><th>类别</th><th>预估费用</th><th>备注</th></tr></thead>
+    <tbody>
+      <tr><td>往返机票</td><td>1,200 – 1,500 元</td><td>春秋~1,200（无行李）/ 国航川航~1,300–1,500</td></tr>
+      <tr><td>住宿（7晚）</td><td>350 – 700 元</td><td>经济酒店 100-200元/间，两人分摊</td></tr>
+      <tr><td>门票+区间车</td><td>660 元</td><td>赛湖145 + 夏塔105 + 喀拉峻275 + 那拉提135</td></tr>
+      <tr><td>当地交通</td><td>450 – 550 元</td><td>大巴+拼车+出租车</td></tr>
+      <tr><td>餐饮（8天）</td><td>500 – 640 元</td><td>约 60-80 元/天</td></tr>
+      <tr><td>购物+其他</td><td>100 – 200 元</td><td>干果特产、应急</td></tr>
+      <tr class="bh"><td><strong>合计</strong></td><td><strong>3,160 – 4,250 元</strong></td><td>中位值约 <strong>3,700</strong> 元</td></tr>
+    </tbody>
+  </table>
+  <p style="margin-top:8px;font-size:0.82em;color:var(--muted)">纯当地花销（不含机票）约 2,000 – 2,500 元/人</p>
+  <p style="font-size:0.76em;color:var(--light)"><span class="sb sb-ref">📌 参考</span> 机票为8月实时比价 · 门票价格更新至2026年7月 · 出行前请查询实时信息</p>
+</section>
+
+<!-- INFO -->
+<section class="section" id="info">
+  <h2>实用信息</h2>
+
+  <h3 style="font-family:'Fraunces',serif;font-size:1.05em;color:var(--ink);margin:20px 0 10px">🌤️ 天气与穿衣</h3>
+  <ul class="tips-ol">
+    <li><span>8月中旬晴到多云为主，白天27-35、夜间17左右，昼夜温差大，全程无降雨预报</span></li>
+    <li><span>赛湖/夏塔风大偏冷（比市区低5-8），赛湖风力3-4级</span></li>
+    <li><span>白天：短袖+防晒衣；早晚+景区：加冲锋衣/薄羽绒服</span></li>
+    <li><span>必备：防滑徒步鞋、遮阳帽（带绳！）、墨镜、SPF50+防晒霜、润唇膏、身体乳</span></li>
+  </ul>
+  <p style="font-size:0.8em;color:var(--light);margin-bottom:18px"><span class="sb sb-ref">📌 参考</span> 基于2026年7月气象预报，建议出行前3天查询实时天气</p>
+
+  <h3 style="font-family:'Fraunces',serif;font-size:1.05em;color:var(--ink);margin:20px 0 10px">✈️ 航班参考</h3>
+  <table class="dt">
+    <thead><tr><th>航司</th><th>航线</th><th>飞行</th><th>单程</th><th>特点</th></tr></thead>
+    <tbody>
+      <tr><td><strong>春秋航空</strong></td><td>TFU 08:15→YIN 12:50</td><td>4h35m</td><td>~600元</td><td>最便宜，无免费托运行李</td></tr>
+      <tr><td><strong>中国国航</strong></td><td>TFU 06:55→YIN 11:20</td><td>4h25m</td><td>~650-750元</td><td>全服务含行李</td></tr>
+      <tr><td><strong>四川航空</strong></td><td>CTU 06:25→YIN 10:50</td><td>4h25m</td><td>~700元</td><td>双流出发，含行李</td></tr>
+      <tr><td><strong>东方航空</strong></td><td>TFU 14:55→YIN 19:25</td><td>4h30m</td><td>~700元</td><td>下午可选</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:0.8em;color:var(--muted)">建议去程选早班机（6:00-8:00出发），中午前抵达不浪费第一天。有托运行李选国航/川航。<span class="sb sb-ref">📌 参考</span> 2026年7月比价</p>
+  <p style="font-size:0.8em;color:var(--muted);margin-top:4px"><strong>返程参考</strong>：回程同样有国航/川航/春秋下午航班可选（伊宁→成都，约13:00-19:00之间），票价与去程相近，建议回程选含行李额航司。</p>
+
+  <h3 style="font-family:'Fraunces',serif;font-size:1.05em;color:var(--ink);margin:20px 0 10px">🚌 当地交通全攻略</h3>
+  <table class="dt">
+    <thead><tr><th>区间</th><th>方式</th><th>耗时</th><th>票价</th><th>购票渠道</th></tr></thead>
+    <tbody>
+      <tr><td>伊宁→赛里木湖</td><td>大巴</td><td>2h</td><td>49元</td><td>「伊犁州汽车客运总站」小程序</td></tr>
+      <tr><td>伊宁→昭苏</td><td>大巴</td><td>3.5-4h</td><td>48元</td><td>「新疆客运联网售票」公众号</td></tr>
+      <tr><td>昭苏→夏塔</td><td>拼车</td><td>1-1.5h</td><td>25元</td><td>昭苏客运站门口拼车点</td></tr>
+      <tr><td>昭苏→特克斯</td><td>大巴</td><td>1.5h</td><td>20-25元</td><td>昭苏客运站现场购票</td></tr>
+      <tr><td>特克斯→喀拉峻</td><td>拼车</td><td>1h</td><td>15元</td><td>特克斯客运站门口拼车点</td></tr>
+      <tr><td>特克斯→新源→那拉提</td><td>大巴</td><td>3-3.5h</td><td>65-70元</td><td>特克斯客运站</td></tr>
+      <tr><td>那拉提→伊宁</td><td>大巴</td><td>3.5-4.5h</td><td>56-80元</td><td>「新疆客运联网售票」公众号</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:0.8em;color:var(--light)">旺季大巴票建议提前1-3天购票。上车点为伊犁州客运总站（重庆北路501号）。<span class="sb sb-ref">📌 参考</span></p>
+
+  <h3 style="font-family:'Fraunces',serif;font-size:1.05em;color:var(--ink);margin:20px 0 10px">🪪 边防证</h3>
+  <p style="font-size:0.88em;color:var(--muted)">夏塔古道位于边境区域，可能需要办理边境通行证。建议出发前在伊宁市公安局（或住地派出所）携带身份证咨询办理。昭苏县城也可办理。<span class="sb sb-ref">📌 建议出行前确认</span></p>
+
+  <h3 style="font-family:'Fraunces',serif;font-size:1.05em;color:var(--ink);margin:20px 0 10px">🎎 当地习俗</h3>
+  <ul class="tips-ol">
+    <li><span>新疆与北京时差约2小时：午餐12-15点、晚餐19-22点，中间时段很多店关门</span></li>
+    <li><span>身份证随身携带！新疆安检频繁，住宿、加油、进入景区都要查验</span></li>
+    <li><span>点拌面说"多放辣子多放醋"，默认口味对外地人偏淡</span></li>
+    <li><span>肠胃敏感的循序渐进尝肉食，搭配卡瓦斯（当地发酵饮料）解腻</span></li>
+  </ul>
+
+  <h3 style="font-family:'Fraunces',serif;font-size:1.05em;color:var(--ink);margin:20px 0 10px">🗣️ 常用语言</h3>
+  <p style="font-size:0.84em;color:var(--muted);margin-bottom:8px">新疆以普通话为主，但学几句维吾尔语更有趣：</p>
+  <table class="dt">
+    <thead><tr><th>中文</th><th>维吾尔语</th><th>近似发音</th></tr></thead>
+    <tbody>
+      <tr><td>你好</td><td>ياخشىمۇسىز</td><td>亚克西木塞斯</td></tr>
+      <tr><td>谢谢</td><td>رەھمەت</td><td>热合买提</td></tr>
+      <tr><td>再见</td><td>خوش</td><td>霍什</td></tr>
+      <tr><td>朋友</td><td>ئاداش</td><td>阿达西</td></tr>
+    </tbody>
+  </table>
+
+  <h3 style="font-family:'Fraunces',serif;font-size:1.05em;color:var(--ink);margin:20px 0 10px">🆘 紧急联系</h3>
+  <table class="dt">
+    <thead><tr><th>类型</th><th>电话</th><th>备注</th></tr></thead>
+    <tbody>
+      <tr><td>报警</td><td><strong>110</strong></td><td></td></tr>
+      <tr><td>急救</td><td><strong>120</strong></td><td></td></tr>
+      <tr><td>伊犁州旅游投诉</td><td>0999-8039295</td><td></td></tr>
+      <tr><td>伊犁州客运总站</td><td>0999-8022409</td><td>班车咨询</td></tr>
+      <tr><td>昭苏客运站</td><td>0999-6022059</td><td>班车咨询</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- PHOTO SPOTS -->
+<section class="section" id="photospots">
+  <h2>拍照打卡指南</h2>
+  <div class="pg">
+    <div class="pi"><div class="pi-ico">◈</div><h4>喀赞其前进街</h4><div class="pi-t">16:00-18:00</div><p>蓝墙红门+光影，穿白/黄色裙子，广角仰拍</p></div>
+    <div class="pi"><div class="pi-ico">◈</div><h4>赛里木湖 S 弯</h4><div class="pi-t">11:00-14:00</div><p>弯道高点往下拍，湖面+公路+雪山经典构图</p></div>
+    <div class="pi"><div class="pi-ico">◈</div><h4>夏塔鲜花台</h4><div class="pi-t">10:00-12:00</div><p>以木扎尔特冰川为背景，野花当前景</p></div>
+    <div class="pi"><div class="pi-ico">◈</div><h4>喀拉峻人体草原</h4><div class="pi-t">16:00-18:00</div><p>斜射光勾勒山丘曲线，侧光效果好</p></div>
+    <div class="pi"><div class="pi-ico">◈</div><h4>那拉提空中草原</h4><div class="pi-t">09:00-11:00</div><p>天界台俯瞰全景，无人机更出片（需报备）</p></div>
+    <div class="pi"><div class="pi-ico">◈</div><h4>八卦城摩天轮</h4><div class="pi-t">20:30-21:30</div><p>摩天轮升至最高点俯拍全景，日落时分很适合</p></div>
+  </div>
+</section>
+
+<!-- TIPS -->
+<section class="section" id="tips">
+  <h2>出行贴士</h2>
+  <ol class="tips-ol">
+    <li><span><strong>提前抢票</strong>：夏塔提前3-7天在[智游昭苏]预约（每日限3000人）；赛里木湖自驾票每日限3000辆；那拉提自驾票每日限2500辆。旺季秒空。</span></li>
+    <li><span><strong>行李轻量化</strong>：全程多次换城市、换酒店，不必要的物品不要带，轻装出行体验好很多。</span></li>
+    <li><span><strong>网络与现金</strong>：夏塔将军桥后及喀拉峻部分峡谷区域无信号，随身带200-300元现金。</span></li>
+    <li><span><strong>晕车药</strong>：伊昭公路和部分山区路段弯道多，容易晕车的话提前备好晕车药。</span></li>
+    <li><span><strong>防晒防干燥</strong>：新疆紫外线极强，SPF50+防晒霜、身体乳和润唇膏是每天必修课。</span></li>
+    <li><span><strong>早出早归</strong>：新疆景区下午容易起风/下雨（尤其夏塔），尽量早上8-9点入园，下午4点前返程。</span></li>
+    <li><span><strong>8月草原实况</strong>：喀拉峻和那拉提8月中旬草开始变黄，但赛里木湖和夏塔不受影响，调整好预期仍然很美。</span></li>
+    <li><span><strong>餐饮节奏</strong>：新疆饭点比内地晚约2小时（午餐14点、晚餐20点），随身带零食应对时差。</span></li>
+  </ol>
+</section>
+
+<div class="footer">
+  <p>📌 本攻略于 2026年7月25日 生成，建议出行前3-5天核实关键信息（航班、酒店、门票预约）。</p>
+  <p>天气为2026年7月气象预报 · 门票价格更新至2026年7月 · 评分来自携程/大众点评</p>
+  <p style="font-size:1.1em;color:var(--clay);margin-top:14px">祝你们北疆之旅愉快 ✦</p>
+  <p style="font-size:0.85em;color:var(--light);margin-top:8px">@AiBytes</p>
+</div>
+
+</main>
+
+<script>
+// back-to-top
+(function(){
+  var btn = document.createElement('button');
+  btn.id = 'btt'; btn.innerHTML = '&#8593;'; btn.title = '回到顶部';
+  document.body.appendChild(btn);
+  function toggle(){ btn.classList.toggle('visible', window.scrollY > 300); }
+  btn.addEventListener('click',function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+  window.addEventListener('scroll',toggle,{passive:true});
+})();
+
+// scroll-spy for nav
+(function(){
+  var links = document.querySelectorAll('.nav-bar a');
+  if(!links.length) return;
+  var secs = [];
+  links.forEach(function(a){
+    var el = document.getElementById(a.getAttribute('href').slice(1));
+    if(el) secs.push({el:el,link:a});
+  });
+  function tick(){
+    var y = window.scrollY + 100;
+    var cur = secs[0];
+    for(var i=0;i<secs.length;i++) if(secs[i].el.offsetTop <= y) cur = secs[i];
+    secs.forEach(function(s){s.link.classList.remove('active')});
+    if(cur) cur.link.classList.add('active');
+  }
+  window.addEventListener('scroll',tick,{passive:true});
+  window.addEventListener('load',tick);
+})();
+</script>
+</body>
+</html>

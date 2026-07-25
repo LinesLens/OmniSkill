@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8"><title>美食合集</title>
+<link rel="stylesheet" href="shared.css">
+<style>
+  body { background: linear-gradient(180deg, #FBF5ED 0%, #FFFEFC 40%, #FFFEFC 100%); }
+  .food-header-section { padding: 60px 80px 28px; flex-shrink: 0; text-align: center; }
+  .food-header-section .fh-label { font-size: 24px; color: var(--clay); letter-spacing: 8px; margin-bottom: 10px; }
+  .food-header-section .fh-title { font-size: 68px; font-weight: 900; color: var(--ink); margin-bottom: 10px; }
+  .food-header-section .fh-sub { font-size: 24px; color: var(--muted); }
+  .food-header-section .fh-pn { position: absolute; top: 60px; right: 100px; font-size: 28px; font-weight: 700; color: var(--muted); letter-spacing: 3px; }
+  .food-grid-light { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; padding: 0 80px 24px; flex-shrink: 0; }
+  .food-item {
+    display: flex; gap: 20px; padding: 24px; border-radius: 16px;
+    background: #fefaf7; border: 1px solid var(--border-l); align-items: center;
+  }
+  .food-item img { width: 130px; height: 130px; object-fit: cover; border-radius: 12px; flex-shrink: 0; }
+  .food-item h4 { font-size: 26px; color: var(--ink); margin-bottom: 4px; }
+  .food-item .fi-day { font-size: 18px; color: var(--clay); margin-bottom: 6px; font-weight: 600; }
+  .food-item .fi-dish { font-size: 20px; color: var(--muted); }
+  .food-item .fi-price { font-size: 19px; color: var(--light); margin-top: 4px; }
+  .food-bot { padding: 12px 80px 0; flex-shrink: 0; text-align: center; font-size: 24px; color: var(--muted); }
+</style>
+</head>
+<body>
+<div class="card">
+  <div class="food-header-section" style="position:relative;">
+    <div class="fh-label">XINJIANG CUISINE</div>
+    <div class="fh-title">🍖 跟着吃就对了</div>
+    <div class="fh-sub">8家本地人推荐的老店，都帮你试过了</div>
+    <div class="fh-pn">10/12</div>
+  </div>
+
+  <div class="food-grid-light">
+    <div class="food-item"><img src="https://images.pexels.com/photos/323682/pexels-photo-323682.jpeg?auto=compress&cs=tinysrgb&w=200" alt="烤包子" loading="lazy"><div><h4>汉人街夜市</h4><div class="fi-day">Day 1 · ⭐4.6</div><div class="fi-dish">烤包子3元 · 面肺子+米肠子15元</div><div class="fi-price">人均 ¥30-50</div></div></div>
+    <div class="food-item"><img src="https://images.pexels.com/photos/1435904/pexels-photo-1435904.jpeg?auto=compress&cs=tinysrgb&w=200" alt="拌面" loading="lazy"><div><h4>米吉提/库尔班江拌面</h4><div class="fi-day">Day 2 · ⭐4.2 必吃榜</div><div class="fi-dish">过油肉拌面（免费加面）+烤串</div><div class="fi-price">人均 ¥30-40</div></div></div>
+    <div class="food-item"><img src="https://images.pexels.com/photos/2338015/pexels-photo-2338015.jpeg?auto=compress&cs=tinysrgb&w=200" alt="手抓羊肉" loading="lazy"><div><h4>昭苏手抓肉馆</h4><div class="fi-day">Day 3 · ⭐4.0</div><div class="fi-dish">清水手抓羊肉 · 大盘鸡（半份）</div><div class="fi-price">人均 ¥50-70</div></div></div>
+    <div class="food-item"><img src="https://images.pexels.com/photos/9609838/pexels-photo-9609838.jpeg?auto=compress&cs=tinysrgb&w=200" alt="椒麻鸡" loading="lazy"><div><h4>博哥椒麻鸡（20年）</h4><div class="fi-day">Day 5 · ⭐4.3</div><div class="fi-dish">椒麻鸡小份48元+手工皮带面</div><div class="fi-price">人均 ¥40-55</div></div></div>
+    <div class="food-item"><img src="https://images.pexels.com/photos/461198/pexels-photo-461198.jpeg?auto=compress&cs=tinysrgb&w=200" alt="夜市烤肉" loading="lazy"><div><h4>特克斯八卦城夜市</h4><div class="fi-day">Day 4 · ⭐4.0</div><div class="fi-dish">过油肉拌面 · 烤羊肉串</div><div class="fi-price">人均 ¥30-45</div></div></div>
+    <div class="food-item"><img src="https://images.pexels.com/photos/1099680/pexels-photo-1099680.jpeg?auto=compress&cs=tinysrgb&w=200" alt="马肉那仁" loading="lazy"><div><h4>阿娜尔家</h4><div class="fi-day">Day 6 · ⭐4.5 排名第3</div><div class="fi-dish">马肉那仁 · 熏马肠 · 薄荷酸奶</div><div class="fi-price">人均 ¥60-80</div></div></div>
+    <div class="food-item"><img src="https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=200" alt="大盘鸡" loading="lazy"><div><h4>伊宁老店大盘鸡</h4><div class="fi-day">Day 7 · ⭐4.2</div><div class="fi-dish">大盘鸡半只+皮带面</div><div class="fi-price">人均 ¥50-60</div></div></div>
+    <div class="food-item"><img src="https://images.pexels.com/photos/2092906/pexels-photo-2092906.jpeg?auto=compress&cs=tinysrgb&w=200" alt="冰淇淋" loading="lazy"><div><h4>古兰丹姆冰淇淋</h4><div class="fi-day">Day 1 · ⭐4.0</div><div class="fi-dish">经典原味19元 · 三拼47元</div><div class="fi-price">人均 ¥15-25</div></div></div>
+  </div>
+
+  <div class="food-bot">每个本地人推荐的老店，都帮你试过了 ✨</div>
+  <div class="sig">@AiBytes</div>
+  <div class="progress"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span class="active"></span><span></span><span></span></div>
+</div>
+</body>
+</html>
