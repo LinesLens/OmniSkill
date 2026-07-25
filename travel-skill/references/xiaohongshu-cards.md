@@ -164,7 +164,7 @@ body {
   <div style="position:absolute;bottom:130px;left:0;right:0;text-align:center;z-index:3;font-size:16px;color:rgba(255,255,255,0.35)">📷 封面背景来自图库，非实拍</div>
   <div class="bottom-bar"><div class="cover-footer"><日期> · <人数> · <风格></div></div>
   <div class="sig" style="position:relative;z-index:3;color:rgba(255,255,255,0.4)">@AiBytes</div>
-  <div class="progress" style="position:relative;z-index:3"><span class="active"></span><span></span>...共12个</div>
+  <div class="progress" style="position:relative;z-index:3"><span class="active"></span><span></span>...共 N+4 个</div>
 </div></body></html>
 ```
 
@@ -172,7 +172,7 @@ body {
 
 ## 每日行程卡片
 
-文件 `02-day1.html` ~ `09-day8.html`。统一模板：
+文件 `02-day1.html` ~ `{N+1}-dayN.html`（N=攻略天数）。统一模板：
 
 ```html
 <!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><title>Day N</title>
@@ -215,7 +215,7 @@ body {
 
 ## 美食合集卡片
 
-文件 `10-food.html`。暖色背景，8 格餐厅：
+文件 `{N+2}-food.html`。暖色背景，餐厅卡片网格：
 
 ```html
 <!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><title>美食合集</title>
@@ -241,7 +241,7 @@ body {
 
 ## 预算卡片
 
-文件 `11-budget.html`。横向条形图 + 省钱 tips：
+文件 `{N+3}-budget.html`。横向条形图 + 省钱 tips：
 
 ```html
 <!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><title>预算一览</title>
@@ -267,7 +267,7 @@ body {
 
 ## 结尾卡片
 
-文件 `12-ending.html`。情感金句 + 数据回顾 + CTA：
+文件 `{N+4}-ending.html`。情感金句 + 数据回顾 + CTA：
 
 ```html
 <!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><title>结尾</title>
@@ -308,7 +308,7 @@ body {
 
 小红书卡片输出前确认：
 
-- [ ] 14 个文件全部生成（shared.css + 12 卡片 + index.html）
+- [ ] N+5 个文件全部生成（shared.css + N 张 day 卡片 + 封面/美食/预算/结尾 + index.html），N 为行程天数
 - [ ] 每张卡片 body 精确 1179×1941px，html 背景 #E8E0D8，body margin: 0 auto
 - [ ] 所有图片 URL 通过 curl -sI 验证 HTTP 200
 - [ ] 封面含 SVG 路线图（6 个标记点，金→粘土渐变虚线）
