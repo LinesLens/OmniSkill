@@ -66,6 +66,15 @@ TravelGuide
 | transportation | string | 当日交通建议 |
 | map_link | string | 当日路线地图短链接 |
 | rainy_alternative | RainyPlan | 雨天备选方案 |
+| images[] | DayImage | 每日配图（1-2 张，包括最后一天） |
+
+## DayImage
+
+| 字段 | 类型 | 说明 |
+|------|------|------|
+| url | string | 图片 URL（需 curl -sI 验证 HTTP 200） |
+| caption | string | 图片说明（非实拍须标注"📷 示意图"） |
+| verified | bool | 是否通过 HTTP 200 可达性验证 |
 
 ## MealSlot
 
@@ -107,6 +116,8 @@ TravelGuide
 | hours | string | 开放时间 |
 | duration | string | 建议游览时间 |
 | tips | string | 游览提示 |
+| image_url | string | 已验证可访问的配图 URL |
+| image_caption | string | 图片说明（注明是否为示意图） |
 | image_query | string | 图片搜索关键词（英文） |
 
 ## Food
@@ -123,6 +134,7 @@ TravelGuide
 | review_count | string | 大众点评评论数（如"1.2万"） |
 | must_try | string[] | 推荐菜品 |
 | reservation | string | 预订提示（是否需要、如何预订） |
+| link | string | Amap POI 搜索链接（如 `https://ditu.amap.com/search?query=餐厅名 城市`） |
 | image_query | string | 图片搜索关键词（英文） |
 
 ## RainyPlan
@@ -144,6 +156,7 @@ TravelGuide
 | dianping_rating | float | 大众点评评分（0-5.0） |
 | review_count | string | 大众点评评论数（如"8500"） |
 | pros | string | 优势 |
+| link | string | Amap POI 搜索链接（如 `https://ditu.amap.com/search?query=酒店名 城市`） |
 | image_query | string | 图片搜索关键词 |
 
 ## BudgetTable
