@@ -133,7 +133,7 @@ description: Use when the user wants to create a travel guide or itinerary - ask
 
 **核心原则**：
 - **每天至少 1 张配图**，包括最后一天（即使只是购物/返程日），重点景点配 2 张
-- 国际图库（Pexels 等）缺乏中国景点实拍照片是客观现实——**所有配图必须加"📷 示意图"标注**，不允许假装是实拍
+- 国际图库（Pexels 等）缺乏中国景点实拍照片是客观现实——配图使用自然描述 caption（`📷 景点描述 · 实用提示`），**不强制"示意图"字样**（实战验证：该字眼在小红书会触发"非原创"判定）
 - 图片 URL 必须通过 `curl -sI` 验证 HTTP 200 可达
 
 ### 方案 1：Pexels API（主方案）
@@ -224,7 +224,7 @@ Wikimedia 图片为自由授权，URL 格式为 `https://upload.wikimedia.org/wi
 - [ ] 每天包含 5-8 个重大事件节点（含三餐 + 关键活动），统一使用左边框卡片（`.ds-r`）呈现
 - [ ] 每天至少 1 张配图，包括最后一天；重点景点配 2 张
 - [ ] 所有图片 URL 经过 `curl -sI` 验证 HTTP 200
-- [ ] 所有配图后紧跟 `📷 示意图 · 具体描述` caption
+- [ ] 所有配图后紧跟 `📷 景点描述 · 实用提示` caption（不强制"示意图"字样）
 - [ ] 餐饮含具体餐厅名、地址、大众点评评分（0-5.0）、评论数
 - [ ] 所有餐厅和酒店名称附带可点击的 Amap POI 搜索链接（`target="_blank"`）
 - [ ] 住宿含具体酒店名、人均价格/晚、大众点评评分（0-5.0）、评论数、地址
@@ -239,6 +239,78 @@ Wikimedia 图片为自由授权，URL 格式为 `https://upload.wikimedia.org/wi
 - [ ] 右下角"回到顶部"按钮（`#btt`）正常工作
 - [ ] `.md` 文档格式完整，表格对齐
 - [ ] `.html` 移动端适配（viewport + 响应式 CSS），正文字号 ≥17px
+
+## 小红书卡片输出阶段
+
+**当用户明确要求"生成小红书截图卡片"或"做小红书版攻略"时执行此阶段。**
+
+### 前置条件
+- 攻略内容（HTML + Markdown）已生成完毕
+- `frontend-design` skill 可用（优先），或降级手动生成
+
+### 输出目标
+在 `<目的地>/xiaohongshu/` 目录下生成一组固定尺寸（1179×1941px）的 HTML 卡片文件，用户打开文件后直接截图即可发布小红书。
+
+### 卡片清单（共 14 个文件）
+
+| 文件 | 内容 |
+|------|------|
+| `shared.css` | 共用样式（精确字号、颜色、布局） |
+| `01-cover.html` | 封面：背景图+渐变蒙层+大字标题+SVG 路线图 |
+| `02-09-dayN.html` | 8 天行程：日期标题+时间轴+景点图+雨天备选 |
+| `10-food.html` | 美食合集：8 格餐厅卡片，暖色背景 |
+| `11-budget.html` | 预算一览：横向条形图+省钱 tips |
+| `12-ending.html` | 结尾互动：情感金句+数据回顾+CTA |
+| `index.html` | 导航页（可选） |
+
+### 传递给前端插件的设计约束
+
+- **画布尺寸**：每张卡片 body 固定 1179 × 1941px，不设 viewport meta
+- **背景**：html 用 `#E8E0D8` 灰色，body 居中（`margin: 0 auto`），卡片与背景有明显区分
+- **字体**：仅使用系统字体 `"PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif`，不加载 Google Fonts
+- **字号**（精确参考值，单位 px）：
+  - 日期标题 `.day-title`: 72px
+  - 时间轴行 `.tl-row`: 28px（font-size），行间距 16px
+  - 时间徽章 `.kt`: 22px
+  - 景点标题 `.attr-info h4`: 40px
+  - 景点正文 `.attr-info p`: 26px
+  - 配图高度 `.attr-img`: 480px
+  - 雨天备选 `.rainy`: 22px
+  - 页码 `.day-pn`: 28px
+  - 标签 `.tag`: 22px
+  - 封面标题 `.cover-title`: 108px
+  - 结尾金句 `.ending-quote`: 68px
+  - 结尾数据 `.ending-stat .num`: 80px
+  - 预算数字 `.tb-num`: 140px
+- **布局**：`.card` 使用 `flex-direction: column`，所有子元素 `flex-shrink: 0`，不使用 `flex: 1`
+- **时间轴**：统一使用 `.tl-row` 左边框卡片，三种颜色变体：`.meal`（粘土色）、`.transit`（蓝色）、`.free`（金色）
+- **图片**：Pexels 优先，URL 须 `curl -sI` 验证 HTTP 200；caption 格式 `📷 景点描述 · 实用提示`，不强制"示意图"字样
+- **评分**：使用 `⭐4.6` 格式
+- **链接**：餐厅酒店名称附带可点击 Amap 搜索链接；地图链接使用 `%5Bname%5D` URL 编码
+- **签名**：每张卡片底部 `<div class="sig">@AiBytes</div>`
+- **封面 SVG**：金→粘土渐变虚线路线图，起点 ✈️ + 终点 ⭐，5-6 个标记点
+- **结尾**：情感金句 + 数据回顾（天数/景区数/人均/里程）+ 互动引导 + hashtag
+- **美食卡片**：暖色背景 `#FBF5ED→#FFFEFC`，与其他卡片一致
+
+### 参考模板
+
+完整 CSS 和 HTML 模板见 `${CLAUDE_SKILL_DIR}/references/xiaohongshu-cards.md`。
+
+### 小红书卡片校验清单
+
+输出前确认：
+- [ ] 14 个文件全部生成（shared.css + 12 卡片 + index.html）
+- [ ] 每张卡片 body 精确 1179×1941px，html 背景 #E8E0D8，body 居中
+- [ ] 所有图片 URL 通过 curl -sI 验证 HTTP 200
+- [ ] 封面含 SVG 路线图
+- [ ] 每张卡片底部有 @AiBytes 签名
+- [ ] 配图 caption 自然描述，不含"示意图"字样
+- [ ] 评分使用 ⭐ 格式
+- [ ] 美食卡片背景与其他卡片一致（暖色系）
+- [ ] 所有卡片 flex-shrink: 0，无弹性空白
+- [ ] 字体仅使用系统字体，不加载 Google Fonts
+- [ ] 字号与参考值一致
+- [ ] 像素值使用 px 单位，不使用 em/rem/vw
 
 ## QR 码与手机分享阶段（可选）
 
